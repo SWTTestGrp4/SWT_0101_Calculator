@@ -75,5 +75,13 @@ namespace SWT_0101_Calculator
             uut.Clear();
             Assert.That(uut.Accumulator, Is.EqualTo(0));
         }
+
+        [Test]
+        public void Divide_FirstAdd2and2ThenDivideBy2_OverloadDivideMethodReturns2()
+        {
+            uut.Add(2, 2);
+            var result = uut.Divide(2);
+            Assert.That(result,Is.EqualTo(2));
+        }
     }
 }

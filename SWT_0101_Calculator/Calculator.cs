@@ -53,5 +53,15 @@ namespace SWT_0101_Calculator
         {
             Accumulator = 0;
         }
+
+        public double Divide(double divisor)
+        {
+            if (divisor == 0)
+            {
+                throw new DivideByZeroException();
+            }
+            var result = Accumulator / divisor;
+            return result;
+        }
     }
 }
