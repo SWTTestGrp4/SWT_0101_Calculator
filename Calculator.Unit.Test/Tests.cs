@@ -56,5 +56,17 @@ namespace SWT_0101_Calculator
             Assert.That(() => uut.Divide(8, 0), Throws.TypeOf<DivideByZeroException>());
 
         }
+        [Test]
+        public void Accumolator_Add2and2thenAdd2and3_ReturnsLatestResult5()
+        {
+            uut.Add(2, 2);
+            uut.Add(2, 3);
+            Assert.That(uut.Accumulator,Is.EqualTo(5));
+        }
+        [Test]
+        public void Accumolator_WhenNoActionPerformed_ReturnsZero()
+        {
+            Assert.That(uut.Accumulator, Is.Zero);
+        }
     }
 }
