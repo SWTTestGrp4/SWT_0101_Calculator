@@ -41,5 +41,10 @@ namespace SWT_0101_Calculator
             }
             return a / b;
         }
+
+        public void Clear()
+        {
+            Accumulator = 0;
+        }
     }
 }
