@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace SWT_0101_Calculator
@@ -37,7 +38,22 @@ namespace SWT_0101_Calculator
         public void Power_2pow2_returns8()
         {
             Calculator uut = new Calculator();
-            Assert.That(uut.Add(2,2), Is.EqualTo(4));
+            Assert.That(uut.Power(2,2), Is.EqualTo(4));
+        }
+
+        [Test]
+        public void Divide_8div2_returns4()
+        {
+            Calculator uut = new Calculator();
+            Assert.That(uut.Divide(8,2), Is.EqualTo(4));
+        }
+
+        [Test]
+        public void Divide_8div0_throwDivideByZeroException()
+        {
+            Calculator uut = new Calculator();
+            Assert.That(() => uut.Divide(8, 0), Throws.TypeOf<DivideByZeroException>());
+
         }
     }
 }
