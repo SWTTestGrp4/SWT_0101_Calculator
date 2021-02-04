@@ -4,7 +4,7 @@ namespace SWT_0101_Calculator
 {
     public class Calculator
     {
-       
+        public double Accumulator { get; private set; }
         public double Add(double a, double b)
         {
             var result = a + b;
@@ -39,7 +39,9 @@ namespace SWT_0101_Calculator
             {
                 throw new DivideByZeroException();
             }
-            return a / b;
+            var result = a / b;
+            Accumulator = result;
+            return result;
         }
     }
 }
