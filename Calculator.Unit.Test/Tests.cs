@@ -9,49 +9,49 @@ namespace SWT_0101_Calculator
         [SetUp]
         public void Setup()
         {
-            Calculator uut = new Calculator();
+            uut = new Calculator();
 
         }
 
         [Test]
         public void Add_2add2_returns4()
         {
-            Calculator uut = new Calculator();
+       
             Assert.That(uut.Add(2,2), Is.EqualTo(4));
         }
 
         [Test]
         public void Subtract_4minus2_returns2()
         {
-            Calculator uut = new Calculator();
+       
             Assert.That(uut.Subtract(4,2), Is.EqualTo(2));
         }
 
         [Test]
         public void Multiply_2x2_returns4()
         {
-            Calculator uut = new Calculator();
+          
             Assert.That(uut.Multiply(2,2), Is.EqualTo(4));
         }
 
         [Test]
         public void Power_2pow2_returns8()
         {
-            Calculator uut = new Calculator();
+        
             Assert.That(uut.Power(2,2), Is.EqualTo(4));
         }
 
         [Test]
         public void Divide_8div2_returns4()
         {
-            Calculator uut = new Calculator();
+        
             Assert.That(uut.Divide(8,2), Is.EqualTo(4));
         }
 
         [Test]
         public void Divide_8div0_throwDivideByZeroException()
         {
-            Calculator uut = new Calculator();
+         
             Assert.That(() => uut.Divide(8, 0), Throws.TypeOf<DivideByZeroException>());
 
         }
