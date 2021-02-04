@@ -4,25 +4,38 @@ namespace SWT_0101_Calculator
 {
     public class Calculator
     {
-       
+        public double Accumulator { get; private set; }
+
+        public Calculator()
+        {
+            Accumulator = 0;
+        }
         public double Add(double a, double b)
         {
-            return a + b;
+            var result = a + b;
+            Accumulator = result;
+            return result;
         }
 
         public double Subtract(double a, double b)
         {
-            return a - b;
+            var result = a - b;
+            Accumulator = result;
+            return result;
         }
 
         public double Multiply(double a, double b)
         {
-            return a * b;
+            var result = a * b;
+            Accumulator = result;
+            return result;
         }
 
-        public  double Power(double a, double b)
+        public double Power(double a, double exp)
         {
-            return Math.Pow(a, b);
+            var result = Math.Pow(a,exp);
+            Accumulator = result;
+            return result;
         }
 
         public double Divide(double a, double b)
@@ -31,7 +44,14 @@ namespace SWT_0101_Calculator
             {
                 throw new DivideByZeroException();
             }
-            return a / b;
+            var result = a / b;
+            Accumulator = result;
+            return result;
+        }
+
+        public void Clear()
+        {
+            Accumulator = 0;
         }
     }
 }
