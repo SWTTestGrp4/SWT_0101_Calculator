@@ -68,5 +68,12 @@ namespace SWT_0101_Calculator
         {
             Assert.That(uut.Accumulator, Is.Zero);
         }
+        [Test]
+        public void Clear_ClearAccumulator_AccumCleared()
+        {
+            uut.Add(10, 5);
+            uut.Clear();
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
     }
 }
