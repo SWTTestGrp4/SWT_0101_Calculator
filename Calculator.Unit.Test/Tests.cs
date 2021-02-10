@@ -6,6 +6,7 @@ namespace SWT_0101_Calculator
     public class Tests
     {
         private Calculator uut;
+
         [SetUp]
         public void Setup()
         {
@@ -54,6 +55,33 @@ namespace SWT_0101_Calculator
          
             Assert.That(() => uut.Divide(8, 0), Throws.TypeOf<DivideByZeroException>());
 
+        }
+        [Test]
+        public void Accumolator_Add2and2thenAdd2and3_ReturnsLatestResult5()
+        {
+            uut.Add(2, 2);
+            uut.Add(2, 3);
+            Assert.That(uut.Accumulator,Is.EqualTo(5));
+        }
+        [Test]
+        public void Accumolator_WhenNoActionPerformed_ReturnsZero()
+        {
+            Assert.That(uut.Accumulator, Is.Zero);
+        }
+        [Test]
+        public void Clear_ClearAccumulator_AccumCleared()
+        {
+            uut.Add(10, 5);
+            uut.Clear();
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Divide_FirstAdd2and2ThenDivideBy2_OverloadDivideMethodReturns2()
+        {
+            uut.Add(2, 2);
+            var result = uut.Divide(2);
+            Assert.That(result,Is.EqualTo(2));
         }
     }
 }
