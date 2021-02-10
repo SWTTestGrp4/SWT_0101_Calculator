@@ -15,6 +15,7 @@ namespace SWT_0101_Calculator
             var result = a + b;
             Accumulator = result;
             return result;
+
         }
 
         public double Subtract(double a, double b)
