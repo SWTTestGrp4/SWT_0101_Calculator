@@ -14,11 +14,12 @@ namespace SWT_0101_Calculator
 
         }
 
-        [Test]
-        public void Add_2add2_returns4()
+        [TestCase(2,2,4)]
+        [TestCase(-2, 2, 0)]
+        [TestCase(-2, -2, -4)]
+        public void Add_AplusB_returnsResult(int a,int b, int result)
         {
-       
-            Assert.That(uut.Add(2,2), Is.EqualTo(4));
+            Assert.That(uut.Add(a,b), Is.EqualTo(result));
         }
 
         [Test]
@@ -98,6 +99,15 @@ namespace SWT_0101_Calculator
             uut.Add(2, 2);
             var result = uut.Divide(2);
             Assert.That(result,Is.EqualTo(2));
+        }
+
+        [Test]
+        public void Divide_Add2and2ThenDivideBy0_OverloadThrowsDivideByZeroException()
+        {
+            //ACT
+            uut.Add(2, 2);
+            //ASSERT
+            Assert.That(()=>uut.Divide(0), Throws.TypeOf<DivideByZeroException>());
         }
     }
 }
