@@ -22,55 +22,45 @@ namespace SWT_0101_Calculator
             Assert.That(uut.Add(a,b), Is.EqualTo(result));
         }
 
-        [Test]
-        public void Subtract_4minus2_returns2()
+        [TestCase(4,2,2)]
+        [TestCase(-4, 2, -6)]
+        [TestCase(-4, -2, -2)]
+        public void Subtract_AminusB_returnsResult(int a, int b, int result)
         {
-       
-            Assert.That(uut.Subtract(4,2), Is.EqualTo(2));
+            Assert.That(uut.Subtract(a,b), Is.EqualTo(result));
         }
 
-
-        [Test]
-        public void Subtract_4minusNegative2_returns6()
+        [TestCase(2,2,4),
+         TestCase(16,4,64),
+         TestCase(9,3,27)]
+        public void Multiply_2x2_returns4(double a, double b, double result)
         {
-
-            Assert.That(uut.Subtract(4, -2), Is.EqualTo(6));
+            var equals= uut.Multiply(a, b);
+            Assert.That(result, Is.EqualTo(equals));
         }
 
-
-        [Test]
-        public void Subtract_0minus2_returnsNegative2()
+        [TestCase(3,2,9),
+         TestCase(16,4,65536),
+         TestCase(9,3,729)]
+        public void Power_2pow2_returns8(double a, double b, double result)
         {
-
-            Assert.That(uut.Subtract(0, 2), Is.EqualTo(-2));
+            var equals= uut.Power(a, b);
+            Assert.That(result, Is.EqualTo(equals));
         }
 
-
-        [Test]
-        public void Multiply_2x2_returns4()
+        [TestCase(2,2,1),
+         TestCase(16,2,8),
+         TestCase(9,3,3)]
+        public void Divide_8div2_returns4(double a, double b, double result)
         {
-          
-            Assert.That(uut.Multiply(2,2), Is.EqualTo(4));
-        }
-
-        [Test]
-        public void Power_2pow2_returns8()
-        {
-        
-            Assert.That(uut.Power(2,2), Is.EqualTo(4));
-        }
-
-        [Test]
-        public void Divide_8div2_returns4()
-        {
-        
-            Assert.That(uut.Divide(8,2), Is.EqualTo(4));
+            var equals= uut.Divide(a, b);
+            Assert.That(result, Is.EqualTo(equals));
         }
 
         [Test]
         public void Divide_8div0_throwDivideByZeroException()
         {
-         
+            
             Assert.That(() => uut.Divide(8, 0), Throws.TypeOf<DivideByZeroException>());
 
         }
@@ -85,6 +75,15 @@ namespace SWT_0101_Calculator
         public void Accumolator_WhenNoActionPerformed_ReturnsZero()
         {
             Assert.That(uut.Accumulator, Is.Zero);
+        }
+
+        [Test]
+        public void Accumolator_AddThenClearThenAdd_ReturnCorrectResultAfterClear()
+        {
+            uut.Add(2, 2);
+            uut.Clear();
+            uut.Add(2, 5);
+            Assert.That(uut.Accumulator,Is.EqualTo(7));
         }
         [Test]
         public void Clear_Add10And5ThenClearAccumulator_AccumCleared()
