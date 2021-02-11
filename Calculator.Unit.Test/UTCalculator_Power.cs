@@ -17,7 +17,7 @@ namespace SWT_0101_Calculator
         [TestCase(3,2,9),
          TestCase(16,4,65536),
          TestCase(9,3,729)]
-        public void Power_2pow2_returns8(double a, double b, double result)
+        public void Power_apowb_returnsResult(double a, double b, double result)
         {
             var equals= uut.Power(a, b);
             Assert.That(result, Is.EqualTo(equals));

@@ -17,7 +17,7 @@ namespace SWT_0101_Calculator
         [TestCase(2,2,1),
         TestCase(16,2,8),
         TestCase(9,3,3)]
-        public void Divide_8div2_returns4(double a, double b, double result)
+        public void Divide_adivb_returnsResult(double a, double b, double result)
         {
             var equals= uut.Divide(a, b);
             Assert.That(result, Is.EqualTo(equals));
