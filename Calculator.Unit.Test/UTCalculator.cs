@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace SWT_0101_Calculator
 {
-    public class Tests
+    public class UTCalculator
     {
         private Calculator uut;
 
