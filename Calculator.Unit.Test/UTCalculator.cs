@@ -22,11 +22,12 @@ namespace SWT_0101_Calculator
             Assert.That(uut.Add(a,b), Is.EqualTo(result));
         }
 
-        [Test]
-        public void Subtract_4minus2_returns2()
+        [TestCase(4,2,2)]
+        [TestCase(-4, 2, -6)]
+        [TestCase(-4, -2, -2)]
+        public void Subtract_AminusB_returnsResult(int a, int b, int result)
         {
-       
-            Assert.That(uut.Subtract(4,2), Is.EqualTo(2));
+            Assert.That(uut.Subtract(a,b), Is.EqualTo(result));
         }
 
         [TestCase(2,2,4),
