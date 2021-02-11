@@ -14,18 +14,6 @@ namespace SWT_0101_Calculator
 
         }
 
-        [TestCase(4,2,2)]
-        [TestCase(-4, 2, -6)]
-        [TestCase(-4, -2, -2)]
-        public void Subtract_AminusB_returnsResult(int a, int b, int result)
-        {
-            Assert.That(uut.Subtract(a,b), Is.EqualTo(result));
-        }
-
-       
-        
-        
-
         [Test]
         public void Clear_Add10And5ThenClearAccumulator_AccumCleared()
         {
