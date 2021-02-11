@@ -22,14 +22,7 @@ namespace SWT_0101_Calculator
             Assert.That(uut.Add(a,b), Is.EqualTo(result));
         }
 
-        [TestCase(4,2,2)]
-        [TestCase(-4, 2, -6)]
-        [TestCase(-4, -2, -2)]
-        public void Subtract_AminusB_returnsResult(int a, int b, int result)
-        {
-            Assert.That(uut.Subtract(a,b), Is.EqualTo(result));
-        }
-
+       
         [TestCase(2,2,4),
          TestCase(16,4,64),
          TestCase(9,3,27)]
@@ -85,28 +78,7 @@ namespace SWT_0101_Calculator
             uut.Add(2, 5);
             Assert.That(uut.Accumulator,Is.EqualTo(7));
         }
-        [Test]
-        public void Clear_Add10And5ThenClearAccumulator_AccumCleared()
-        {
-            uut.Add(10, 5);
-            uut.Clear();
-            Assert.That(uut.Accumulator, Is.EqualTo(0));
-        }
-
-        [Test]
-        public void Clear_Add10And10ThenClearAccumulator_AccumCleared()
-        {
-            uut.Add(10, 10);
-            uut.Clear();
-            Assert.That(uut.Accumulator, Is.EqualTo(0));
-        }
-
-        [Test]
-        public void Clear_Add10And5ThenDontClearAccumulator_AccumNotCleared()
-        {
-            uut.Add(10, 5);
-            Assert.That(uut.Accumulator, Is.Not.EqualTo(0));
-        }
+       
 
         [Test]
         public void Divide_FirstAdd2and2ThenDivideBy2_OverloadDivideMethodReturns2()
