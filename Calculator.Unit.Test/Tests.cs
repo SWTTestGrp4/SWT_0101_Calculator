@@ -83,5 +83,14 @@ namespace SWT_0101_Calculator
             var result = uut.Divide(2);
             Assert.That(result,Is.EqualTo(2));
         }
+
+        [Test]
+        public void Divide_Add2and2ThenDivideBy0_OverloadThrowsDivideByZeroException()
+        {
+            //ACT
+            uut.Add(2, 2);
+            //ASSERT
+            Assert.That(()=>uut.Divide(0), Throws.TypeOf<DivideByZeroException>());
+        }
     }
 }
