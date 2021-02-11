@@ -31,6 +31,22 @@ namespace SWT_0101_Calculator
 
 
         [Test]
+        public void Subtract_4minusNegative2_returns6()
+        {
+
+            Assert.That(uut.Subtract(4, -2), Is.EqualTo(6));
+        }
+
+
+        [Test]
+        public void Subtract_0minus2_returnsNegative2()
+        {
+
+            Assert.That(uut.Subtract(0, 2), Is.EqualTo(-2));
+        }
+
+
+        [Test]
         public void Multiply_2x2_returns4()
         {
           
