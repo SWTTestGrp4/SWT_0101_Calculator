@@ -30,6 +30,7 @@ namespace SWT_0101_Calculator
             Assert.That(uut.Subtract(a,b), Is.EqualTo(result));
         }
 
+
         [Test]
         public void Multiply_2x2_returns4()
         {
@@ -71,11 +72,26 @@ namespace SWT_0101_Calculator
             Assert.That(uut.Accumulator, Is.Zero);
         }
         [Test]
-        public void Clear_ClearAccumulator_AccumCleared()
+        public void Clear_Add10And5ThenClearAccumulator_AccumCleared()
         {
             uut.Add(10, 5);
             uut.Clear();
             Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Clear_Add10And10ThenClearAccumulator_AccumCleared()
+        {
+            uut.Add(10, 10);
+            uut.Clear();
+            Assert.That(uut.Accumulator, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void Clear_Add10And5ThenDontClearAccumulator_AccumNotCleared()
+        {
+            uut.Add(10, 5);
+            Assert.That(uut.Accumulator, Is.Not.EqualTo(0));
         }
 
         [Test]
