@@ -24,28 +24,8 @@ namespace SWT_0101_Calculator
 
        
         
-        [Test]
-        public void Accumolator_Add2and2thenAdd2and3_ReturnsLatestResult5()
-        {
-            uut.Add(2, 2);
-            uut.Add(2, 3);
-            Assert.That(uut.Accumulator,Is.EqualTo(5));
-        }
+        
 
-        [Test]
-        public void Accumolator_WhenNoActionPerformed_ReturnsZero()
-        {
-            Assert.That(uut.Accumulator, Is.Zero);
-        }
-
-        [Test]
-        public void Accumolator_AddThenClearThenAdd_ReturnCorrectResultAfterClear()
-        {
-            uut.Add(2, 2);
-            uut.Clear();
-            uut.Add(2, 5);
-            Assert.That(uut.Accumulator,Is.EqualTo(7));
-        }
         [Test]
         public void Clear_Add10And5ThenClearAccumulator_AccumCleared()
         {
