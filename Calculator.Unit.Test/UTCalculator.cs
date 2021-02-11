@@ -14,14 +14,6 @@ namespace SWT_0101_Calculator
 
         }
 
-        [TestCase(2,2,4)]
-        [TestCase(-2, 2, 0)]
-        [TestCase(-2, -2, -4)]
-        public void Add_AplusB_returnsResult(int a,int b, int result)
-        {
-            Assert.That(uut.Add(a,b), Is.EqualTo(result));
-        }
-
         [TestCase(4,2,2)]
         [TestCase(-4, 2, -6)]
         [TestCase(-4, -2, -2)]
